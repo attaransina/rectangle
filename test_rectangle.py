@@ -34,3 +34,19 @@ class TestRectangle(TestCase):
     def test_none_height_initialize(self):
         with self.assertRaises(TypeError):
             rec = Rectangle(_width=2.0, _height=None)
+
+    def test_correct_set_height(self):
+        rec = Rectangle(_width=10.0, _height=20.0)
+        self.assertEqual(rec.get_height(), 20.0)
+        rec.set_height(10.0)
+        self.assertEqual(rec.get_height(), 10.0)
+
+    def test_bad_type_set_height(self):
+        rec = Rectangle(_width=10.0, _height=15.0)
+        with self.assertRaises(TypeError):
+            rec.set_height('25.0')
+
+    def test_bad_value_set_width(self):
+        rec = Rectangle(_width=10.0, _height=15.0)
+        with self.assertRaises(ValueError):
+            rec.set_width(-1.0)
