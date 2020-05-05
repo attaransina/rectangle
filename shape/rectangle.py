@@ -1,4 +1,7 @@
-class Rectangle(object):
+from .shape import Shape
+
+
+class Rectangle(Shape):
 
     def __init__(self, _width: float, _height: float):
         Rectangle.check_value_is_pos_number(_width)
