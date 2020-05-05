@@ -18,3 +18,19 @@ class TestRectangle(TestCase):
     def test_int_with_initialize(self):
         with self.assertRaises(TypeError):
             rec = Rectangle(_width=12, _height=12.3)
+
+    def test_negative_width_initialize(self):
+        with self.assertRaises(ValueError):
+            rec = Rectangle(_width=-1.5, _height=2.5)
+
+    def test_negative_height_initialize(self):
+        with self.assertRaises(ValueError):
+            rec = Rectangle(_width=2.0, _height=-10.5)
+
+    def test_none_width_initialize(self):
+        with self.assertRaises(TypeError):
+            rec = Rectangle(_width=None, _height=2.2)
+
+    def test_none_height_initialize(self):
+        with self.assertRaises(TypeError):
+            rec = Rectangle(_width=2.0, _height=None)
