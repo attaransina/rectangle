@@ -1,13 +1,7 @@
-class Rectangle(object):
+from abc import ABC, abstractmethod
 
-    def __init__(self, _width: float, _height: float):
-        Rectangle.check_value_is_pos_number(_width)
-        Rectangle.check_value_is_pos_number(_height)
-        self._width = _width
-        self._height = _height
 
-    def compute_area(self):
-        return float(self._width * self._height)
+class Shape(ABC):
 
     @staticmethod
     def check_value_is_pos_number(value):
@@ -17,3 +11,7 @@ class Rectangle(object):
             raise TypeError('value should be float')
         if value <= 0:
             raise ValueError('value should be greater than zero')
+
+    @abstractmethod
+    def compute_area(self) -> float:
+        raise NotImplementedError
