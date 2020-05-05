@@ -1,5 +1,5 @@
 from unittest import TestCase
-from rectangle import Rectangle
+from shape.rectangle import Rectangle
 
 
 class TestRectangle(TestCase):
